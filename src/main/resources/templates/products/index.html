@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pc Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Un fondo suave para la página */
+        }
+
+       .custom-container {
+        max-width: 1400px;
+        }
+
+        h1 {
+            color: #0d6efd; /* Un color más vibrante para el título */
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+        }
+
+        .btn-edit {
+            color: #fff;
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-delete {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-edit:hover, .btn-delete:hover {
+            opacity: 0.85;
+        }
+
+        .table {
+            background-color: #fff;
+            border-radius: .5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+        .table thead th {
+            border-top: none;
+        }
+
+        .action-buttons a {
+            margin: 0 5px;
+        }
+
+        .create-product-btn {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="custom-container">
+    <div class="text-center">
+        <h1>Products</h1>
+        <div class="create-product-btn">
+            <a href="/products/create" class="btn btn-primary btn-lg">Create Product</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Created At</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id_product}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.brand}"></td>
+                <td th:text="${product.category}"></td>
+                <td th:text="${product.price} + ' $'"></td>
+                <td>
+                    <img th:src="@{/images/{filename}(filename=${product.imageFileName})}" alt="'Image of ' + ${product.name}" width="100">
+                </td>
+                <td th:text="${#dates.format(product.createdAt, 'yyyy-MM-dd')}"></td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" th:href="@{/products/edit(id=${product.id_product})}">Edit</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/products/delete(id=${product.id_product})}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
