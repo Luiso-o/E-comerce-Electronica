@@ -13,3 +13,6 @@ Características destacadas:
 🎨 Estilo Personalizado: La aplicación utiliza Bootstrap con personalizaciones específicas para garantizar una presentación visual atractiva y una experiencia de usuario coherente a través de la tienda.
 
 Este proyecto representa una solución completa para la venta en línea de productos electrónicos y accesorios para el hogar, destacando por su enfoque en la usabilidad, la estética, y la funcionalidad avanzada de gestión de productos.
+
+https://github.com/Luiso-o/E-comerce-Electronica/assets/128043647/5884dd68-1886-49eb-9bb6-118090ad05bf
+
