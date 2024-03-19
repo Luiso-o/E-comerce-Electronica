@@ -44,7 +44,7 @@ public class ProductController {
             model.addAttribute("errorMessage", "No se pueden cargar los productos en este momento.");
             return "error";
         }
-        return "products/index";
+        return "products/productList";
     }
 
     //----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ public class ProductController {
             model.addAttribute("errorMessage", "No se pueden cargar los productos en este momento.");
             return "error";
         }
-        return "products/index";
+        return "products/productList";
     }
 
     //----------------------------------------------------------------------------
