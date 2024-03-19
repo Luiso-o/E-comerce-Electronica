@@ -1,0 +1,81 @@
+:root {
+    /* Paleta de colores mejorada */
+    --background-color: #f4f7fa;
+    --text-color: #34495e;
+    --border-color: #bdc3c7;
+    --focus-border-color: #2980b9;
+    --focus-shadow-color: rgba(41, 128, 185, 0.25);
+    --primary-color: #3498db;
+    --primary-dark-color: #2874a6;
+    --placeholder-color: #95a5a6;
+
+    /* Tipografía */
+    --font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Bordes y sombras */
+    --border-radius: 15px;
+    --button-border-radius: 20px;
+    --box-shadow: 0 4px 6px 0 rgba(0,0,0,0.1);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-control, .form-select {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 0.75rem 1.25rem;
+    box-shadow: var(--box-shadow);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--focus-border-color);
+    box-shadow: 0 0 0 0.2rem var(--focus-shadow-color);
+}
+
+.btn-primary, .btn-outline-primary {
+    border-radius: var(--button-border-radius);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: darken(var(--primary-color), 5%);
+    color: #fff;
+    box-shadow: var(--box-shadow);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    background-color: var(--primary-dark-color);
+    border-color: darken(var(--primary-dark-color), 5%);
+    color: #fff;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+    font-weight: 400;
+    color: var(--placeholder-color);
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
