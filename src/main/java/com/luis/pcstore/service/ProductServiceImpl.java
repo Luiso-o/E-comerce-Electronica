@@ -1,14 +1,19 @@
 package com.luis.pcstore.service;
 
 import com.luis.pcstore.document.Product;
+import com.luis.pcstore.dto.CreatedProductDto;
 import com.luis.pcstore.dto.ProductDto;
+import com.luis.pcstore.helper.ProductsHelper;
 import com.luis.pcstore.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springdoc.core.converters.PageableOpenAPIConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -21,9 +26,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -31,10 +36,12 @@ public class ProductServiceImpl implements ProductService {
     private String imageDirectoryPath;
     private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
     private final ProductRepository productRepository;
+    private final ProductsHelper converter;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, ProductsHelper converter) {
         this.productRepository = productRepository;
+        this.converter = converter;
     }
 
     @Override
@@ -42,15 +49,21 @@ public class ProductServiceImpl implements ProductService {
         return imageDirectoryPath.replace("file:", "");
     }
 
-
     @Override
-    public List<Product> showAllProducts() {
-        return productRepository.findAll();
+    public Page<ProductDto> showAllProducts(Pageable pageable) {
+       Page<Product> productPage = productRepository.findAll(pageable);
+       return productPage.map(converter::converterDocumentToDto);
     }
 
     @Override
-    public void saveProduct(ProductDto productDto, BindingResult result) {
-        if (productDto.getImageFileName().isEmpty()) {
+    public Page<ProductDto> findProductsByCategory(String category, Pageable pageable) {
+        Page<Product> productPageList = productRepository.findByCategory(category, pageable);
+        return productPageList.map(converter::converterDocumentToDto);
+    }
+
+    @Override
+    public void saveProduct(CreatedProductDto createdProductDto, BindingResult result) {
+        if (createdProductDto.getImageFileName().isEmpty()) {
             result.addError(new FieldError("productDto", "imageFileName", "The image file is required."));
         }
 
@@ -59,50 +72,13 @@ public class ProductServiceImpl implements ProductService {
         }
 
         try {
-            String storageFileName = storeImageFile(productDto.getImageFileName());
-            Product product = buildProductEntityFromDto(productDto, new Date(), storageFileName);
+            String storageFileName = storeImageFile(createdProductDto.getImageFileName());
+            Product product = converter.buildProductEntityFromDto(createdProductDto, new Date(), storageFileName);
             productRepository.save(product);
         } catch (IOException e) {
             log.error("Failed to store image file", e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to store image file");
         }
-    }
-
-    @Override
-    public Product findProduct(UUID id_product) {
-        return productRepository.findById(id_product)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
-    }
-
-    @Override
-    @Transactional
-    public void updateProduct(ProductDto productDto, UUID id_product, BindingResult result) {
-        if (result.hasErrors()) {
-            throw new IllegalArgumentException("Validation errors in ProductDto");
-        }
-
-        Product product = findProduct(id_product);
-        if (!productDto.getImageFileName().isEmpty()) {
-            try {
-                updateImageIfNeeded(productDto.getImageFileName(), product);
-            } catch (IOException e) {
-                log.error("Error updating product image", e);
-                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error updating product image");
-            }
-        }
-
-        updateProductDetails(productDto, product);
-    }
-
-    @Override
-    public void deleteProduct(UUID id_product) {
-        productRepository.deleteById(id_product);
-    }
-
-    private void updateImageIfNeeded(MultipartFile newImageFile, Product product) throws IOException {
-        String storageFileName = storeImageFile(newImageFile);
-        deleteImageFile(product.getImageFileName());
-        product.setImageFileName(storageFileName);
     }
 
     private String storeImageFile(MultipartFile image) throws IOException {
@@ -125,6 +101,50 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    @Override
+    @Transactional
+    public void updateProduct(CreatedProductDto productDto, UUID id_product, BindingResult result) {
+        if (result.hasErrors()) {
+            throw new IllegalArgumentException("Validation errors in ProductDto");
+        }
+
+        Product product = findProduct(id_product);
+        if (!productDto.getImageFileName().isEmpty()) {
+            try {
+                updateImageIfNeeded(productDto.getImageFileName(), product);
+            } catch (IOException e) {
+                log.error("Error updating product image", e);
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error updating product image");
+            }
+        }
+
+        updateProductDetails(productDto, product);
+    }
+
+    @Override
+    public Product findProduct(UUID id_product) {
+        return productRepository.findById(id_product)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
+    }
+
+    private void updateImageIfNeeded(MultipartFile newImageFile, Product product) throws IOException {
+        if(newImageFile == null || newImageFile.isEmpty()){
+            return;
+        }
+        String storageFileName = storeImageFile(newImageFile);
+        deleteImageFile(product.getImageFileName());
+        product.setImageFileName(storageFileName);
+    }
+
+    private void updateProductDetails(CreatedProductDto productDto, Product product) {
+        product.setName(productDto.getName());
+        product.setBrand(productDto.getBrand());
+        product.setCategory(productDto.getCategory());
+        product.setPrice(productDto.getPrice());
+        product.setDescription(productDto.getDescription());
+        productRepository.save(product);
+    }
+
     public void deleteImageFile(String fileName) {
         if (fileName == null || fileName.isEmpty()) return;
         Path imagePath = Paths.get(getUploadDir(), fileName);
@@ -135,26 +155,8 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-
-    private void updateProductDetails(ProductDto productDto, Product product) {
-        product.setName(productDto.getName());
-        product.setBrand(productDto.getBrand());
-        product.setCategory(productDto.getCategory());
-        product.setPrice(productDto.getPrice());
-        product.setDescription(productDto.getDescription());
-        productRepository.save(product);
-    }
-
-    private Product buildProductEntityFromDto(ProductDto productDto, Date createAt, String imageFileName) {
-        return Product.builder()
-                .id_product(UUID.randomUUID())
-                .name(productDto.getName())
-                .brand(productDto.getBrand())
-                .category(productDto.getCategory())
-                .price(productDto.getPrice())
-                .description(productDto.getDescription())
-                .createdAt(createAt)
-                .imageFileName(imageFileName)
-                .build();
+    @Override
+    public void deleteProduct(UUID id_product) {
+        productRepository.deleteById(id_product);
     }
 }

@@ -7,3 +7,10 @@ spring:
       uuid-representation: standard
       uri: mongodb://localhost:27017/pcstore_db
       database: pcstore_db
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb=DEBUG:
