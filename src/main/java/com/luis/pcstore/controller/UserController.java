@@ -1,6 +1,7 @@
 package com.luis.pcstore.controller;
 
 import com.luis.pcstore.dto.UserDto;
+import com.luis.pcstore.dto.UserProfileDto;
 import com.luis.pcstore.service.UserServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/users")
@@ -44,10 +47,11 @@ public class UserController {
 
     @PostMapping("/login")
     public String authenticate(@RequestParam String email, @RequestParam String password, Model model) {
-        boolean isAuthenticated = userService.authenticateUser(email, password);
+        Optional<UserProfileDto> userProfile = userService.authenticateUser(email, password);
 
-        if (isAuthenticated) {
-            return "redirect:/";
+        if (userProfile.isPresent()) {
+            model.addAttribute("userProfile", userProfile.get());
+            return "users/profile";
         } else {
             model.addAttribute("error", "Invalid email or password.");
             return "users/login";

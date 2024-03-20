@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil del Usuario</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <h1 class="text-center">Welcome <span th:text="${userProfile.name}"></span></h1>
+
+    <div class="row mt-4">
+        <!-- Contenedor de Imagen -->
+        <div class="col-md-3 img-container">
+            <img src="/img/bloquear.png" alt="Foto del trabajador" class="profile-image">
+        </div>
+
+        <!-- Información del Usuario -->
+        <div class="col-md-9 information-container">
+            <div class="profile-section">
+                <div class="profile-info">
+                    <h2>Perfil del Usuario</h2>
+                    <p><strong>ID de Usuario: </strong> <span th:text="${userProfile.id_user}"></span></p>
+                    <p><strong>Nombre: </strong> <span th:text="${userProfile.name}"></span></p>
+                    <p><strong>Apellido: </strong> <span th:text="${userProfile.surname}"></span></p>
+
+                    <div class="mt-4 text-center">
+                        <a th:href="@{/}" class="btn btn-danger">Cerrar sesión</a>
+                        <a href="/products" class="btn btn-primary" >Explorar Productos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

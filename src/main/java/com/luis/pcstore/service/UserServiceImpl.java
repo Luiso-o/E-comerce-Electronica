@@ -2,6 +2,7 @@ package com.luis.pcstore.service;
 
 import com.luis.pcstore.document.User;
 import com.luis.pcstore.dto.UserDto;
+import com.luis.pcstore.dto.UserProfileDto;
 import com.luis.pcstore.helper.UserHelper;
 import com.luis.pcstore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,18 +27,21 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void register(UserDto userInfo) {
-        User user = converter.convertDotoToDocument(userInfo);
+        User user = converter.convertDotToDocument(userInfo);
         userRepository.save(user);
     }
 
     @Override
-    public boolean authenticateUser(String email, String password) {
+    public Optional<UserProfileDto> authenticateUser(String email, String password) {
         Optional<User> userOptional = userRepository.findByEmail(email);
         if(userOptional.isPresent()){
             User user = userOptional.get();
-            return passwordEncoder.matches(password, user.getPassword());
+            if (passwordEncoder.matches(password,user.getPassword())){
+                UserProfileDto userProfileDto = converter.castUserToProfileDto(user);
+                return Optional.of(userProfileDto);
+            }
         }
-        return false;
+        return Optional.empty();
     }
 
 
