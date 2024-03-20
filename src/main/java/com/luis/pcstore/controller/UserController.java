@@ -33,5 +33,26 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("/login")
+    public String authenticate(Model model) {
+       String email = "";
+       String password = "";
+        model.addAttribute("email",email);
+        model.addAttribute("password",password);
+       return "users/login";
+    }
+
+    @PostMapping("/login")
+    public String authenticate(@RequestParam String email, @RequestParam String password, Model model) {
+        boolean isAuthenticated = userService.authenticateUser(email, password);
+
+        if (isAuthenticated) {
+            return "redirect:/";
+        } else {
+            model.addAttribute("error", "Invalid email or password.");
+            return "users/login";
+        }
+    }
+
 }
 
