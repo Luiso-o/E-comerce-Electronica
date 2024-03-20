@@ -14,5 +14,5 @@ Características destacadas:
 
 Este proyecto representa una solución completa para la venta en línea de productos electrónicos y accesorios para el hogar, destacando por su enfoque en la usabilidad, la estética, y la funcionalidad avanzada de gestión de productos.
 
-https://github.com/Luiso-o/E-comerce-Electronica/assets/128043647/5884dd68-1886-49eb-9bb6-118090ad05bf
+https://github.com/Luiso-o/E-comerce-Electronica/assets/128043647/3ea7273b-1048-42d2-b295-cdf4d518ba5a
 
