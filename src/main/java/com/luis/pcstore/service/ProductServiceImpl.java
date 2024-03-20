@@ -7,7 +7,6 @@ import com.luis.pcstore.helper.ProductsHelper;
 import com.luis.pcstore.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springdoc.core.converters.PageableOpenAPIConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;

@@ -1,13 +1,8 @@
 package com.luis.pcstore.document;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.util.Date;
 import java.util.UUID;
 
