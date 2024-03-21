@@ -12,6 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class User {
+    //testeado
     @MongoId
     private UUID id_user;
     @NotEmpty(message = "Name cannot be empty")

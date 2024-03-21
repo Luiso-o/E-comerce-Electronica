@@ -16,7 +16,7 @@ import java.util.UUID;
 @Component
 public class ProductsHelper {
 
-
+    //testeado
     public ProductDto converterDocumentToDto(Product product){
         return ProductDto.builder()
                 .id_product(product.getId_product())
@@ -29,6 +29,7 @@ public class ProductsHelper {
                 .build();
     }
 
+    //testeado
     public Product buildProductEntityFromDto(CreatedProductDto createdProductDto, Date createAt, String imageFileName) {
         return Product.builder()
                 .id_product(UUID.randomUUID())

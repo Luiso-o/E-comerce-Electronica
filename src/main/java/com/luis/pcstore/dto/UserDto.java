@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class UserDto {
+    //testeado
     @NotEmpty(message = "Name cannot be empty")
     private String name;
     @NotEmpty(message = "Surname cannot be empty")

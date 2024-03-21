@@ -34,7 +34,7 @@ public class ProductController {
 
     //----------------------------------------------------------------------------
     @GetMapping({"" , "/"})
-    public String showProductList(Model model, @PageableDefault(size = 5, sort = "name") Pageable pageable){
+    public String showProductList(Model model, @PageableDefault(size = 6, sort = "name") Pageable pageable){
         try {
             Page<ProductDto> productsDtoList = productService.showAllProducts(pageable);
             model.addAttribute("page",productsDtoList);
