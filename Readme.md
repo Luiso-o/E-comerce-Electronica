@@ -16,3 +16,35 @@ Este proyecto representa una solución completa para la venta en línea de produ
 
 https://github.com/Luiso-o/E-comerce-Electronica/assets/128043647/5884dd68-1886-49eb-9bb6-118090ad05bf
 
+Prerrequisitos
+Antes de empezar, asegúrate de tener instalado lo siguiente en tu sistema:
+
+Docker Compose
+Estas herramientas son esenciales para construir y ejecutar los contenedores necesarios para el proyecto.
+
+Configuración inicial
+Paso 1: Clonar el Repositorio
+Para obtener una copia del proyecto en tu máquina local, clona el repositorio usando el siguiente comando:
+- git clone [URL_DEL_REPOSITORIO]
+- cd [NOMBRE_DEL_DIRECTORIO_DEL_PROYECTO]
+
+Paso 2: Preparar los Datos Iniciales
+El proyecto utiliza archivos JSON para inicializar la base de datos con datos de prueba. Asegúrate de que los archivos pcstore_db.Users.json y pcstore_db.Products.json estén ubicados en el directorio data-init.
+
+Paso 3: Construir y Levantar los Servicios con Docker Compose
+Para construir las imágenes de Docker y levantar los contenedores definidos en el archivo docker-compose.yml, ejecuta el siguiente comando en la terminal:
+- docker-compose up --build
+
+Este comando construirá la imagen de tu aplicación y la de MongoDB, y luego iniciará los contenedores. Si la base de datos necesita ser inicializada con datos de prueba, asegúrate de que el servicio de MongoDB esté configurado para ejecutar scripts de inicialización al arrancar.
+
+Paso 4: Acceder a la Aplicación
+Una vez que los contenedores estén corriendo, la aplicación estará accesible desde un navegador web en la dirección http://localhost:8081, asumiendo que configuraste el puerto 8081 para el servicio de la aplicación en tu docker-compose.yml.
+
+Uso
+Detalla aquí cualquier paso específico o comandos necesarios para interactuar con la aplicación, como registrarse, iniciar sesión, o agregar nuevos productos.
+
+Detener y Limpiar
+Para detener los contenedores y remover los servicios creados, puedes utilizar el siguiente comando:
+- docker-compose down -v
+
+Este comando removerá los contenedores, redes y volúmenes definidos en el docker-compose.yml.
