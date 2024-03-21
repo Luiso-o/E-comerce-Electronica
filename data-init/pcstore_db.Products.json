@@ -1,0 +1,360 @@
+[{
+  "_id": {
+    "$binary": {
+      "base64": "qqmOCOazRyWAljja4OdgMA==",
+      "subType": "04"
+    }
+  },
+  "name": "TV LED 75\"",
+  "brand": "Samsung",
+  "category": "TV & Home Theater",
+  "price": 749.89,
+  "description": "TV LED 75\" - Samsung TU75CU7175UXXC, UHD 4K, Smart TV, PurColor, Object Tracking Sound Lite, Adaptive Sound, Motion Xcelerator, Negro",
+  "createdAt": {
+    "$date": "2024-03-09T16:29:29.006Z"
+  },
+  "imageFileName": "8fe4a02a-8dd6-450a-8010-a445cb1c6b3d.webp",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "4kBJ/cfDSpSAn0X51ukj5A==",
+      "subType": "04"
+    }
+  },
+  "name": "Smartwatch",
+  "brand": "Samsung",
+  "category": "Wearables",
+  "price": 169.99,
+  "description": "Smartwatch - Samsung Watch 4 Classic BT, 46 mm, 1.4\", Exynos W920, 16 GB, 361 mAh, IP68, Black",
+  "createdAt": {
+    "$date": "2024-03-09T16:32:53.365Z"
+  },
+  "imageFileName": "9af74b6b-e698-4b5a-bed4-26dbb0d675e4.webp",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "JBv9F12RRpK5ijaKkmEEeQ==",
+      "subType": "04"
+    }
+  },
+  "name": "Lavadora carga frontal",
+  "brand": "LG F4WT2009S3W",
+  "category": "Home Appliances",
+  "price": 353.99,
+  "description": "Lavadora carga frontal - LG F4WT2009S3W, Serie 100, 9 kg, 1400 rpm, 15 programas, Sistema Dual Spray, Blanco",
+  "createdAt": {
+    "$date": "2024-03-09T16:34:35.690Z"
+  },
+  "imageFileName": "3e87430a-ba4d-4c6f-b4f1-3588c98f016c.webp",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "zQgAtdGqSeCCQhGY9K6K5w==",
+      "subType": "04"
+    }
+  },
+  "name": "PC-Gaming",
+  "brand": "EPICAL-Q Pack Gaming",
+  "category": "Computers",
+  "price": 649.9,
+  "description": "PC-Gaming - EPICAL-Q Pack Gaming GPlus10, AMD Ryzen 5 5600G, 16 GB RAM, 1 TB SSD, Radeon™ Onboard Graphics, Windows 11 Home (64 Bit), Windows 11 Home, Negro",
+  "createdAt": {
+    "$date": "2024-03-09T16:36:53.627Z"
+  },
+  "imageFileName": "98d253f7-1ca9-4052-a34b-f467275661be.webp",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "G4HAYDRkT2qU/wrNjdjJTA==",
+      "subType": "04"
+    }
+  },
+  "name": "Móvil",
+  "brand": "Motorola G14",
+  "category": "Phones",
+  "price": 112,
+  "description": "Móvil - Motorola G14, Azul, 128GB, 4GB RAM, 6.5\", FullHD+, UNISOC T616, 5000mAh, Android 13",
+  "createdAt": {
+    "$date": "2024-03-09T19:10:43.112Z"
+  },
+  "imageFileName": "9f0dcbdd-953c-4be2-bba8-56a1a8734a21.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "l4fMULgCRRecdc1HobI+bg==",
+      "subType": "04"
+    }
+  },
+  "name": "Cámara Reflex",
+  "brand": "Canon EOS",
+  "category": "Cameras",
+  "price": 299.99,
+  "description": "Cámara Reflex - Canon EOS 1000D + Objetivo Canon EF-S 18 55mm",
+  "createdAt": {
+    "$date": "2024-03-09T19:12:54.266Z"
+  },
+  "imageFileName": "af0a03a3-947a-4a1f-a3fc-b5aacc725b58.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "rt84Yx3MS0iK1U9A7Os8iA==",
+      "subType": "04"
+    }
+  },
+  "name": "Consola",
+  "brand": "Nintendo",
+  "category": "Gaming",
+  "price": 349,
+  "description": "Nintendo Switch OLED Rojo (edición Mario)",
+  "createdAt": {
+    "$date": "2024-03-09T19:14:59.757Z"
+  },
+  "imageFileName": "27e2499a-0b4d-4481-9d07-4b105efeb2cb.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "vg1W853wQsGxLFDThkYtJw==",
+      "subType": "04"
+    }
+  },
+  "name": "Tablet ",
+  "brand": "Samsung",
+  "category": "Tablets & E-readers",
+  "price": 465.89,
+  "description": "Tablet - Samsung Galaxy Tab S9 FE Wifi, 128GB, 6GB RAM, Gris, 10.9\", S Pen, WQXGA+, Exynos 1380, Android 13",
+  "createdAt": {
+    "$date": "2024-03-10T12:50:44.175Z"
+  },
+  "imageFileName": "04259a2a-d658-45b8-b314-c99613a440cb.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "UwGgdqxlRFOy51wof0kuPw==",
+      "subType": "04"
+    }
+  },
+  "name": "Ratón inalámbrico Recargable",
+  "brand": "Cherry",
+  "category": "Accessories",
+  "price": 25,
+  "description": "Ratón inalámbrico Recargable 2.4G USB (Nivel de batería Visible),ergonómico para computadora,Ratones inalámbricos silenciosos para computadora portátil PC, 3 Niveles dpi (Negro)",
+  "createdAt": {
+    "$date": "2024-03-19T09:03:57.885Z"
+  },
+  "imageFileName": "c1564ca4-464c-4b34-9a27-9d0e689fabe1.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "yGzNx7bIQ32aFi1WmLofwg==",
+      "subType": "04"
+    }
+  },
+  "name": "Impresora multifunción",
+  "brand": "Brother MFCL2800DW",
+  "category": "Printers",
+  "price": 162.89,
+  "description": "Brother MFCL2800DW, Impresora multifunción láser Monocromo WiFi con fax, impresión automática a Doble Cara y ADF de 50 Hojas",
+  "createdAt": {
+    "$date": "2024-03-19T09:52:32.301Z"
+  },
+  "imageFileName": "f3503d54-09fb-4c32-bd82-6b532d11877b.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "dfftUD1gTEa0LmAjPgOq+g==",
+      "subType": "04"
+    }
+  },
+  "name": "Alarma para Casa",
+  "brand": "PGST",
+  "category": "Smart Home Devices",
+  "price": 119,
+  "description": "PGST Sistema de Alarma para Casa y Negocios Sin Cuotas Mensuales,Kit de Alarma WiFi/gsm Controlable con Aplicación Móvil, Ampliable con 99 Sensores, Compatible con Alexa y Google Assistant",
+  "createdAt": {
+    "$date": "2024-03-19T09:55:28.150Z"
+  },
+  "imageFileName": "2a0a10f4-b6da-4587-a8db-a0d86ba87b5b.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "NqIyhwrWS6mzND3wpZXXpg==",
+      "subType": "04"
+    }
+  },
+  "name": "Barra de Sonido 5.1",
+  "brand": "Sony HT-S40R",
+  "category": "TV & Home Theater",
+  "price": 319,
+  "description": "Sony HT-S40R - Barra de Sonido 5.1 (Sistema de Cine en Casa, Altavoces Traseros Inalámbricos, 600 W, Dolby Digital, Bluetooth, Sonido Envolvente), Negro",
+  "createdAt": {
+    "$date": "2024-03-19T09:57:57.344Z"
+  },
+  "imageFileName": "87e4ee80-bb12-4fc2-ab03-2d44e269d878.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "fb7414A8SK26oNFtSMBPQQ==",
+      "subType": "04"
+    }
+  },
+  "name": "Smartwatch",
+  "brand": "Samsung",
+  "category": "Wearables",
+  "price": 181,
+  "description": "Conectividad: BluetoothWi-FiGPSCaja: 40 mmMaterial de la pulsera: SiliconaCapacidad: 16 GBGénero: Unisex adultosMemoria RAM: 1,5 GBPantalla: 1,2\"\"Tecnología: AMOLEDResistente al agua: 5 atmProtección: IP68Batería de litio recargable: 247 mAhSistema Operativo: Wear OSResolución: 396 x 396 pxColor: Negro",
+  "createdAt": {
+    "$date": "2024-03-19T10:01:11.174Z"
+  },
+  "imageFileName": "969220e5-fe28-4568-8678-9add142c7e04.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "K9C+Wrv7RtqufIFQwPtmxg==",
+      "subType": "04"
+    }
+  },
+  "name": "Enrutador",
+  "brand": "TP-Link Omada ",
+  "category": "Networking & Wireless",
+  "price": 62.95,
+  "description": "Integrado en Omada SDN: aprovisionamiento sin intervención, gestión centralizada en la nube y monitoreo inteligente.\r\nGestión Centralizada: Acceso a la nube y a la aplicación Omada para una gestión simple y conveniente.\r\n5 puertos Gigabit: Ofrece conectividad por cable de alta velocidad.",
+  "createdAt": {
+    "$date": "2024-03-19T10:04:17.426Z"
+  },
+  "imageFileName": "675c9eed-1bec-4c1e-9cc2-42d43ebd5b21.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "4AtP1xQ3Szu9IpcRoVBJDw==",
+      "subType": "04"
+    }
+  },
+  "name": "Altavoces Vintage",
+  "brand": "Wiibo Neo 100",
+  "category": "Audio",
+  "price": 149.99,
+  "description": "Potencia salida 100W \r\nBass Reflex\r\nEntradas RCA para Giradiscos con Previo Phono\r\nEntradas Optica y Coaxial para Televisor",
+  "createdAt": {
+    "$date": "2024-03-19T10:06:27.109Z"
+  },
+  "imageFileName": "8f57d497-2714-439c-a612-3c9b8fe3dea5.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "kIGavb4FT5+VvSGHMbeiNw==",
+      "subType": "04"
+    }
+  },
+  "name": "Drone con cámara 4K",
+  "brand": "Holy Stone HS360S",
+  "category": "Drones",
+  "price": 199.99,
+  "description": "Holy Stone HS360S GPS Drone con cámara 4K UHD para Adultos Principiantes, FPV RC Quadcopter Plegable con Rango de Control 3KM, Motor sin Escobillas, Follow Me, Smart Return Home, Transmisión 5G, 249g",
+  "createdAt": {
+    "$date": "2024-03-19T10:07:50.402Z"
+  },
+  "imageFileName": "65466274-06c0-47d3-89ad-71f54d845b17.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "LclFF/IUQK6EuGS+4TYO0g==",
+      "subType": "04"
+    }
+  },
+  "name": "Mancuernas",
+  "brand": "Behumax",
+  "category": "Health & Fitness",
+  "price": 59,
+  "description": "Par de Mancuernas Ajustables Behumax\r\nColor negro",
+  "createdAt": {
+    "$date": "2024-03-19T10:10:40.511Z"
+  },
+  "imageFileName": "ce567e4b-03da-477a-9343-4170524a171c.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "RJTbauX+RoqBhLF/+bqXpA==",
+      "subType": "04"
+    }
+  },
+  "name": "Cafetera Espresso",
+  "brand": "Cecotec",
+  "category": "Home Appliances",
+  "price": 81.71,
+  "description": "Cafetera Espresso Cecotec Power Espresso 20 Tradizionale",
+  "createdAt": {
+    "$date": "2024-03-19T10:13:17.641Z"
+  },
+  "imageFileName": "9213a243-e86e-4c31-b45f-d11cecba9c42.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "zPnTN5L9QZygjsYJKbEBuQ==",
+      "subType": "04"
+    }
+  },
+  "name": "Cámaras Tester",
+  "brand": "Triplett",
+  "category": "Security & Surveillance",
+  "price": 249.31,
+  "description": "CAMERA TESTER CAMVIEW PRO-8W",
+  "createdAt": {
+    "$date": "2024-03-19T10:18:09.740Z"
+  },
+  "imageFileName": "d4a0cbb1-4838-4a04-ac2d-12edc3287add.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "El5vg73BRUKr1+FYWbbGgA==",
+      "subType": "04"
+    }
+  },
+  "name": "Ordenador Portatil",
+  "brand": "MSI Cyborg 15 A12VF-097XES ",
+  "category": "Computers",
+  "price": 5000,
+  "description": "Gaming 15.6\" FHD, 144Hz \r\n(Intel Core i7-12650H, RTX 4060-8GB, 16GB RAM, 1TB SSD, Sin Sistema Operativo) Translucent Black - Teclado QWERTY Español",
+  "createdAt": {
+    "$date": "2024-03-20T18:17:34.620Z"
+  },
+  "imageFileName": "4391fcf9-bdc9-4506-ab1b-0d5380317421.jpg",
+  "_class": "com.luis.pcstore.document.Product"
+}]

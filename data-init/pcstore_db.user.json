@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$binary": {
+      "base64": "Zi/D5jxWSN2anPuwd7SMwQ==",
+      "subType": "04"
+    }
+  },
+  "name": "Juan",
+  "surname": "Perez",
+  "email": "juan@ejemplo.com",
+  "password": "$2a$10$HeywSHvWfRRgY7JeOPie9uEDLFM3qcP3Bjx2LQE0hn7evgZSTyKQC",
+  "_class": "com.luis.pcstore.document.User"
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "wAV5g3QtSqaIcd5k/XqCXg==",
+      "subType": "04"
+    }
+  },
+  "name": "Paco",
+  "surname": "Martinez",
+  "email": "paco@ejemplo.com",
+  "password": "$2a$10$Cnk9xVhi7bT6cO5hnySV2eplIbdNs0GlBqB7yEqgUfTtCTCWPu97W",
+  "_class": "com.luis.pcstore.document.User"
+}]

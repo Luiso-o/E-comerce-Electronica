@@ -10,3 +10,21 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+    volumes:
+      - ./data-init:/data-init
+      - ./mongodb-data:/data/db
+    command: ["--auth"]
+  mongo-seed:
+    image: mongo
+    volumes:
+      - ./data-init:/data-init
+    depends_on:
+      - db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    command: >
+      /bin/bash -c "echo 'Waiting for MongoDB to start...' &&
+      sleep 10 &&
+      mongoexport --host db --authenticationDatabase admin --username root --password example --db pcstore_db --collection users --type json --file /data-init/pcstore_db.user.json --jsonArray &&
+      mongoexport --host db --authenticationDatabase admin --username root --password example --db pcstore_db --collection products --type json --file /data-init/pcstore_db.Products.json --jsonArray"
