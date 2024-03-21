@@ -8,6 +8,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class UserProfileDto {
+    //testeado
     private UUID id_user;
     private String name;
     private String surname;

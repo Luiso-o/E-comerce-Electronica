@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 @Builder
 public class CreatedProductDto {
+    //testeado
     @NotEmpty(message = "The name is required")
     private String name;
     @NotEmpty(message = "The brand is required")

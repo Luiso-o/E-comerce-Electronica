@@ -8,6 +8,15 @@ body {
     font-weight: 700;
 }
 
+.navbar-nav .custom-nav-link {
+    color: #f8f9fa;
+
+    &:hover{
+        color: #f8f9fa;
+        text-shadow: 2px 2px 4px #000000;
+    }
+}
+
 .container-fluid .navbar-brand{
     color: white;
     font-size: 35px;
@@ -18,10 +27,6 @@ body {
 .custom-container {
     max-width: 1400px;
     padding: 20px;
-}
-
-.btn-primary{
-    margin-right: 30px;
 }
 
 .btn-primary:hover, .btn-primary:focus {
