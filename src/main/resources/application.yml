@@ -4,9 +4,9 @@ myapp:
 spring:
   data:
     mongodb:
-      uuid-representation: standard
       uri: mongodb://localhost:27017/pcstore_db
       database: pcstore_db
+      uuid-representation: standard
 
 logging:
   level:

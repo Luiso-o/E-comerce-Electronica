@@ -3,13 +3,11 @@ package com.luis.pcstore.service;
 import com.luis.pcstore.document.Product;
 import com.luis.pcstore.dto.CreatedProductDto;
 import com.luis.pcstore.dto.ProductDto;
-import org.springdoc.core.converters.PageableOpenAPIConverter;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.validation.BindingResult;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface ProductService {

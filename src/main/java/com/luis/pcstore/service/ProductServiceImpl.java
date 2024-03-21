@@ -48,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
         return imageDirectoryPath.replace("file:", "");
     }
 
+    //testeado
     @Override
     public Page<ProductDto> showAllProducts(Pageable pageable) {
        Page<Product> productPage = productRepository.findAll(pageable);
