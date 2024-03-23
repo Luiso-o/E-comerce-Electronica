@@ -11,9 +11,6 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        String dirName = "pcstore/public/images";
-        String uploadPath = Paths.get(dirName).toFile().getAbsolutePath();
-
-        registry.addResourceHandler("/images/**").addResourceLocations("file:/" + uploadPath + "/");
+        registry.addResourceHandler("/images/**").addResourceLocations("file:/app/images/");
     }
 }

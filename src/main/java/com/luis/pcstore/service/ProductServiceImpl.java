@@ -28,7 +28,6 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
-
 @Service
 public class ProductServiceImpl implements ProductService {
     @Value("${myapp.image-directory}")

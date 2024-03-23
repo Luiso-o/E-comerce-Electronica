@@ -73,7 +73,10 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String createProduct(@Valid @ModelAttribute CreatedProductDto createdProductDto, BindingResult result, RedirectAttributes redirectAttributes) {
+    public String createProduct(@Valid @ModelAttribute CreatedProductDto createdProductDto,
+                                BindingResult result,
+                                RedirectAttributes redirectAttributes) {
+
         if (result.hasErrors()) {
             return "products/CreateProduct";
         }

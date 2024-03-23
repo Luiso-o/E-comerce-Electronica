@@ -1,30 +1,30 @@
-version: '3'
+version: '3.8'
+
 services:
-  app:
-    build: .
+  pcstore-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8081:8080"
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src
+      - ./pcstore/public/images:/app/images
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:pcstorepassword@mongo:27017/pcstore?authSource=admin
     depends_on:
-      - db
-  db:
-    image: mongo
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: pc-store-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pcstorepassword
     ports:
       - "27017:27017"
     volumes:
-      - ./data-init:/data-init
-      - ./mongodb-data:/data/db
-    command: ["--auth"]
-  mongo-seed:
-    image: mongo
-    volumes:
-      - ./data-init:/data-init
-    depends_on:
-      - db
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    command: >
-      /bin/bash -c "echo 'Waiting for MongoDB to start...' &&
-      sleep 10 &&
-      mongoexport --host db --authenticationDatabase admin --username root --password example --db pcstore_db --collection users --type json --file /data-init/pcstore_db.user.json --jsonArray &&
-      mongoexport --host db --authenticationDatabase admin --username root --password example --db pcstore_db --collection products --type json --file /data-init/pcstore_db.Products.json --jsonArray"
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
