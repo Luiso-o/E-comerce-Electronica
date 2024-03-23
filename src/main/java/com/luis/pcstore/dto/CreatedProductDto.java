@@ -21,7 +21,7 @@ public class CreatedProductDto {
     private String category;
     @Min(0)
     private double price;
-    @Size(min = 10, max = 2000, message = "The description should be at least 10 characters and cannot exceed 2000 characters")
+    @Size(min = 5, max = 1000, message = "The description should be at least 10 characters and cannot exceed 2000 characters")
     private String description;
     @FileSize(max = 1048576, message = "The image must not exceed 1MB")
     private MultipartFile imageFileName;

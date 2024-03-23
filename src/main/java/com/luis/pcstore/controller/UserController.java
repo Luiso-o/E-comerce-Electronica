@@ -2,9 +2,11 @@ package com.luis.pcstore.controller;
 
 import com.luis.pcstore.dto.UserDto;
 import com.luis.pcstore.dto.UserProfileDto;
-import com.luis.pcstore.service.UserServiceImpl;
+import com.luis.pcstore.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +17,11 @@ import java.util.Optional;
 @Controller
 @RequestMapping(value = "/users")
 public class UserController {
-    private final UserServiceImpl userService;
+    private final AuthService authService;
 
     @Autowired
-    public UserController(UserServiceImpl userService) {
-        this.userService = userService;
+    public UserController(AuthService authService) {
+        this.authService = authService;
     }
 
     @GetMapping("/register")
@@ -31,12 +33,12 @@ public class UserController {
 
     @PostMapping("/register")
     public String saveUser(@Valid @ModelAttribute UserDto userInfo, RedirectAttributes redirectAttributes){
-        userService.register(userInfo);
+        authService.register(userInfo);
         redirectAttributes.addFlashAttribute("successMessage", "User successfully register!");
         return "redirect:/";
     }
 
-    @GetMapping("/login")
+   @GetMapping("/login")
     public String authenticate(Model model) {
        String email = "";
        String password = "";
@@ -47,12 +49,11 @@ public class UserController {
 
     @PostMapping("/login")
     public String authenticate(@RequestParam String email, @RequestParam String password, Model model) {
-        Optional<UserProfileDto> userProfile = userService.authenticateUser(email, password);
-
-        if (userProfile.isPresent()) {
-            model.addAttribute("userProfile", userProfile.get());
-            return "users/profile";
-        } else {
+        try {
+            UserProfileDto userProfile = authService.authenticateUser(email, password);
+            model.addAttribute("userProfile", userProfile);
+            return "users/profile"; // Redirige a la vista del perfil del usuario
+        } catch (BadCredentialsException | UsernameNotFoundException e) {
             model.addAttribute("error", "Invalid email or password.");
             return "users/login";
         }

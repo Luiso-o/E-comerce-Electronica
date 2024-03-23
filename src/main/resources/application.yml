@@ -1,16 +1,36 @@
-myapp:
-  image-directory: 'file:./pcstore/public/images/'
-
 spring:
+  application:
+    name: pcstore-app
   data:
     mongodb:
-      uri: mongodb://localhost:27017/pcstore_db
-      database: pcstore_db
+      uri: mongodb://root:pcstorepassword@mongo:27017/pcstore_db?authSource=admin
       uuid-representation: standard
 
+# Configuración directorio de imagenes
+myapp:
+  image-directory: 'file:/app/images/'
+
+# Configuraciones de logging
 logging:
   level:
-    org:
-      springframework:
-        data:
-          mongodb=DEBUG:
+    root: INFO
+    org.springframework.data.mongodb: DEBUG
+    "[org.springframework]": ERROR
+    "[com.pcstore]": INFO
+
+# Configuración del servidor, en caso de que necesites especificar un puerto diferente o propiedades relacionadas
+server:
+  port: 8080
+
+# Configuraciones de documentación API si decides integrar Swagger o similar en el futuro
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"
+    operationsSorted: method
+  api-docs:
+    enable: true
+    path: "/api-docs"
+
+# Configuración de manejo de errores y mensajes, similar al ejemplo anterior
+messages:
+  errorMessage: "An error occurred. Please try again later."

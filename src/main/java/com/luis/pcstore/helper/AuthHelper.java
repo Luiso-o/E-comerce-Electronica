@@ -4,25 +4,27 @@ import com.luis.pcstore.document.User;
 import com.luis.pcstore.dto.UserDto;
 import com.luis.pcstore.dto.UserProfileDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
 @Component
-public class UserHelper {
+public class AuthHelper {
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    public AuthHelper(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
-    public User convertDotToDocument(UserDto user){
-        String passwordHash = passwordEncoder.encode(user.getPassword());
+    public User convertDotToUser(UserDto user){
         return User.builder()
                 .id_user(UUID.randomUUID())
                 .name(user.getName())
                 .surname(user.getSurname())
                 .email(user.getEmail())
-                .password(passwordHash)
+                .password(passwordEncoder.encode(user.getPassword()))
                 .build();
     }
 
